@@ -29,8 +29,8 @@
         android:layout_marginTop="16dp"
         android:text="Strikes: 0"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@id/score"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/score" />
 
     <Button
         android:id="@+id/button"
@@ -63,9 +63,12 @@
         android:layout_marginTop="48dp"
         android:background="#FF90D3F1"
         android:text=""
+        android:textSize="64sp"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/instructions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
 
     <TextView
         android:id="@+id/boxTwo"
@@ -74,9 +77,13 @@
         android:layout_marginTop="48dp"
         android:background="#FFFFB342"
         android:text=""
+        android:textSize="64sp"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/boxOne"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+
 
 
 
