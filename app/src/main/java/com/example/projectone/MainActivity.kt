@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var boxTwo: TextView
     private var scoreCount: Int = 0
     private var strikeCount: Int = 0
-    private var randOne = ((Math.random()*100)+1).toInt()
-    private var randTwo = ((Math.random()*100)+1).toInt()
+    private var randOne: Int = ((Math.random()*100)+1).toInt()
+    private var randTwo: Int =  ((Math.random()*100)+1).toInt()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                 score.text = "Score: $scoreCount"
                 strikes.setTextColor(Color.BLACK)
                 score.setTextColor(Color.BLACK)
+                main.setBackgroundColor(Color.parseColor("#DEEDEDA7"))
             }else{
                 (it as TextView).text = "Restart"
                 on = true;
@@ -58,6 +59,10 @@ class MainActivity : AppCompatActivity() {
     private fun game(){
         randOne = ((Math.random()*100)+1).toInt()
         randTwo = ((Math.random()*100)+1).toInt()
+        while(randOne==randTwo){
+            randOne = ((Math.random()*100)+1).toInt()
+            randTwo = ((Math.random()*100)+1).toInt()
+        }
         boxOne.text = randOne.toString()
         boxTwo.text = randTwo.toString()
         instructions.text = "Tap the larger number!"
@@ -65,13 +70,13 @@ class MainActivity : AppCompatActivity() {
             if(randOne>=randTwo){
                 scoreCount++
                 main.setBackgroundColor(Color.GREEN)
-                score.setTextColor(Color.WHITE)
+                score.setTextColor(Color.YELLOW)
                 strikes.setTextColor(Color.BLACK)
             }else{
                 strikeCount++
                 main.setBackgroundColor(Color.RED)
                 score.setTextColor(Color.BLACK)
-                strikes.setTextColor(Color.WHITE)
+                strikes.setTextColor(Color.YELLOW)
             }
             newNums()
             ending()
@@ -81,13 +86,13 @@ class MainActivity : AppCompatActivity() {
             if(randTwo>=randOne){
                 scoreCount++
                 main.setBackgroundColor(Color.GREEN)
-                score.setTextColor(Color.WHITE)
+                score.setTextColor(Color.YELLOW)
                 strikes.setTextColor(Color.BLACK)
             }else{
                 strikeCount++
                 main.setBackgroundColor(Color.RED)
                 score.setTextColor(Color.BLACK)
-                strikes.setTextColor(Color.WHITE)
+                strikes.setTextColor(Color.YELLOW)
             }
             newNums()
             ending()
@@ -125,6 +130,10 @@ class MainActivity : AppCompatActivity() {
         score.text = "Score: $scoreCount"
         randOne = ((Math.random()*100)+1).toInt()
         randTwo = ((Math.random()*100)+1).toInt()
+        while(randOne==randTwo){
+            randOne = ((Math.random()*100)+1).toInt()
+            randTwo = ((Math.random()*100)+1).toInt()
+        }
         boxOne.text = randOne.toString()
         boxTwo.text = randTwo.toString()
     }
